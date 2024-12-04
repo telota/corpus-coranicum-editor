@@ -1,0 +1,1 @@
+<x-form.select label='Country (country code)' :$action :options='collect($countries)' :value='$country' name='country_code' />

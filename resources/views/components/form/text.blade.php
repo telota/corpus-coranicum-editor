@@ -1,0 +1,1 @@
+<x-form.input-simple :$action :$entity :$label inputType='text' :$dbField :$placeholder :$show :$create :$edit />

@@ -1,0 +1,16 @@
+/vendor
+/node_modules
+public/assets
+public/fonts
+public/mix-manifest.json
+Homestead.yaml
+Homestead.json
+.env
+_ide_helper.php
+.idea
+.phpstorm.meta.php
+composer.lock
+dump.sql
+public/digital_library
+storage
+!storage/app

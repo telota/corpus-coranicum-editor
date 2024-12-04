@@ -1,0 +1,1 @@
+{!! Form::hidden('manuskriptid',  $manuskript->ID ) !!}

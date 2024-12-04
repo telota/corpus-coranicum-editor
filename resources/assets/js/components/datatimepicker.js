@@ -1,0 +1,3 @@
+$('.datetime').datetimepicker({
+  locale: 'de',
+});

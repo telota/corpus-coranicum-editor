@@ -1,0 +1,64 @@
+#Oxygen Xml Einrichtung für Nutzende
+
+h2(#die-datenbank-verbinden). Die Datenbank Verbinden
+
+h3(#datenbankansicht-öffnen). 1. Datenbankansicht öffnen
+
+!images/oxygen_xml1.png(Öffne Datenbank)!
+Öffne Datenbank
+
+h3(#datenbankquelle-anlegen). 2. Datenbankquelle anlegen
+
+Klicken Sie auf das grün markierte Symbol, eine neue Datenbankquelle anzulegen.
+
+!images/oxygen_xml2.png(Datenbank einstellen)!
+Datenbank einstellen
+
+h3(#neue-datenbankverbindung-erstellen). 3. Neue Datenbankverbindung Erstellen
+
+* Bei @Data Source@ sollten Sie @WebDAV FTP@ wählen.
+* Klicken Sie bei den @Connections@ auf das Plus&#45;Symbol, um eine neue Datenbankverbindung zu erstellen.
+
+!images/oxygen_xml3.png(Füge eine neue Datenbankverbindung hinzu)!
+Füge eine neue Datenbankverbindung hinzu
+
+Geben Sie diese Daten ein:
+
+* *Name*, wie z.B. "XML&#45;Edit".
+* Beim *Data Source* sollten Sie *WebDAV* auswählen.
+* Die *WebDAV/FTP URL* sollte die folgende URL sein:
+
+@https://xmledit.bbaw.de/expath/webdav/db/apps/corpuscoranicum/data@
+
+* Geben Sie Ihre *Username* und *Passwort* ein.
+
+!images/oxygen_xml4.png(Namen, URL, User, und Passwort eingeben)!
+Namen, URL, User, und Passwort eingeben
+
+Klicken Sie auf OK.
+
+h3(#datenbank-verbinden). 4. Datenbank verbinden
+
+Klicken Sie auf die neue Datenbank, um sie zu verbinden.
+
+!images/oxygen_xml5.png(Doppeltclickt auf der Datenbank)!
+Doppeltclickt auf der Datenbank
+
+h3(#datenbank-nutzen). 5. Datenbank nutzen
+
+Wenn es mit der Verbindung geklappt hat, sieht die Datenbankverbindung so aus:
+
+!images/oxygen_xml6.png(Mit der Datenbank verbunden)!
+Mit der Datenbank verbunden
+
+h2(#datenbankquellen-anzeigen). Datenbankquellen Anzeigen
+
+Wenn man die Datenbankquellen aus Versehen geschlossen hat, kann man sie wieder anzeigen. Klicken Sie auf @Window -> Show View -> Data Source Explorer@.
+
+!images/oxygen_xml8.png(Wie man sie wieder anzeigt)!
+Wie man sie wieder anzeigt
+
+Sie wird wieder angezeigt:
+
+!images/oxygen_xml7.png(Anzeige der Datenbankquellen)!
+Anzeige der Datenbankquellen

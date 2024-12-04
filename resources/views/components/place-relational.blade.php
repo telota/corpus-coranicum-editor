@@ -1,0 +1,1 @@
+{{$entity->place_name}}

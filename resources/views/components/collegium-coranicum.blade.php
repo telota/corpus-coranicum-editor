@@ -1,0 +1,1 @@
+<x-veranstaltung :$entity :$action />

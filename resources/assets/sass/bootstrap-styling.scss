@@ -1,0 +1,88 @@
+@import "bootstrap";
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0px auto;
+}
+
+ul.nav li.dropdown:hover ul.dropdown-menu{
+  display: block;
+  margin-top:0px
+}
+
+.dataTables_wrapper {
+  margin-top: 20px !important;
+}
+
+
+td .glyphicon {
+  padding-right: 5px;
+}
+
+.glyphicon-hover {
+  color: darkgrey;
+}
+
+.glyphicon-hover:hover{
+  color: black;
+  cursor: pointer;
+}
+
+.info {
+  padding-bottom: 1em;
+}
+
+.input-group{
+  margin-bottom: 0.5em;
+}
+
+.form-horizontal .form-group {
+  margin-left: 0;
+}
+
+h1 ul.dropdown-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.list-group-item-head {
+  background-color: #EEE;
+}
+
+.paret {
+  margin-top: 0.5em;
+}
+
+.scrollable {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.no-bullets {
+  list-style-type: none;
+}
+
+.dataTable ul > li{
+  color:grey
+}
+
+.ui-dialog-content.select2-container {
+  width: 100% !important;
+}
+
+
+.textstelle {
+  display: none;
+}
+
+.textstelle-title, .textstelle-placeholder {
+  cursor: pointer;
+}
+
+.zotero {
+
+}
+

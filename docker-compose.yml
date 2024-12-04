@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:5
+    ports: 
+      - 3007:3306
+    command: --max_allowed_packet=32505856 # Set max_allowed_packet to 256M (or any other value)
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: corpuscoranicum
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql    

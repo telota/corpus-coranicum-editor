@@ -1,0 +1,1 @@
+{!! Form::select($label, $options, $default) !!}

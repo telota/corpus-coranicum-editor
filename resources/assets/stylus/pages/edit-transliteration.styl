@@ -1,0 +1,212 @@
+#transliterationEditor
+  margin: 10px;
+  z-index:1;
+
+  #addLineContainer
+    direction: ltr
+    text-align: right;
+    margin-right:3px;
+
+  .flex-container
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+
+  #wordListContainer
+    flex: 1
+    max-height 500px
+
+  #lineListContainer
+    flex: 2
+
+  /* Everything for LineBox-Design */
+  .panel-body
+    margin-top:10px;
+    margin-bottom: 10px;
+    border-width: 2px;
+    height: 500px;
+    overflow-y: scroll;
+
+  .panel
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-top: 3px;
+
+  .lines
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    padding: 5px;
+    margin: 5px;
+
+  .lines button
+    margin:0px;
+    width:auto;
+
+  .lineButtons button
+    width:80px;
+    margin-left: 5px;
+
+  .lineButtons
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    align-content: center;
+    margin: 5px;
+
+  .lineContent
+    display: -webkit-flex;
+    display: flex;
+    flex: 90%;
+    flex-flow: row-reverse wrap;
+
+  .lineContent .arab
+    font-size: 1.5em
+
+  .lineNumber
+    display: -webkit-flex;
+    display: flex;
+    flex: 5%;
+    flex-flow: row-reverse wrap;
+    justify-content: center;
+    align-content: center;
+    font-size:20px;
+
+  .addLineContent
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content:flex-end;
+
+
+  .activeLine
+    background-color: rgba(51, 122, 183, 0.2);
+
+  /* Everything for WordBox-Design */
+  .wordListContent
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-content: center;
+
+
+  .wordListContent .wordListButton
+    display: -webkit-flex;
+    display: flex;
+
+  #wordProperties
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    flex-grow: 1;
+
+  #wordProperties span
+    margin-right: 10px;
+
+  #wordProperties .arab
+    font-size 1.5em
+
+  .wordnumber
+    color: gray;
+
+  .arab w
+    padding-left: 10px;
+    font-size: 1.5em
+
+  .arab pc
+    padding-left: 4px;
+    font-size: 1.5em
+
+  /* Text Color & Alignments */
+  .note-editor.note-frame .note-editing-area .note-editable w
+    color:#4A2081;
+    text-align: right;
+    font-size: 24px;
+    font-family Coranica
+    font-variant-ligatures: none;
+    -moz-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+    -ms-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+    -webkit-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+    font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+    direction:rtl;
+
+  .note-editor.note-frame .note-editing-area .note-editable
+    text-align: right;
+
+  .note-toolbar
+    text-align:right;
+
+  .note-btn
+    width: 100px;
+
+  .deleted
+    background-color: red;
+    color: black;
+    text-decoration: none;
+
+
+  .modified
+    background-color: #4FD1FF;
+    color: black;
+
+  .rasm_variant
+    background-color: #C6D9F1;
+    color: black;
+
+  .rasm_added
+    background-color: lawngreen;
+    color: black;
+
+
+  .illegible
+    color: grey;
+    background-color: white;
+
+
+  .unclear
+    background-color: #FDE9D9;
+    color:black;
+
+
+  .omitted
+    color: black;
+    background-color: yellow;
+
+  #lineNumber
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+    width: 50px;
+    text-align:center
+
+  #transliteration-help
+    text-align: right
+    margin: 15px;
+
+  #transliteration-help button
+    width: auto
+
+  #transliteration-help #helpCollapse
+    font-size: 15px;
+    margin-left: 3px;
+    margin-top: 5px;
+    text-align: left;
+
+  #transliteration-help li
+    margin-bottom: 10px;
+
+  .showLines
+    display: -webkit-flex;
+    display: flex;
+    font-size: 0.8em;
+    align-items: center;
+    padding-top: 10px;
+
+  #saveTransliterationButton
+    margin-top: 10px;
+
+
+
+

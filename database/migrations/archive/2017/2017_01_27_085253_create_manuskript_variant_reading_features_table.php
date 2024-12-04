@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+/**
+ * Class CreateManuskriptVariantReadingFeaturesTable
+ */
+class CreateManuskriptVariantReadingFeaturesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('manuskript_variant_reading_features', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->integer("manuskript_id");
+            $table->string("feature");
+            $table->string("definition")->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('manuskript_variant_reading_features');
+    }
+}

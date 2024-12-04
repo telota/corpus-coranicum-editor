@@ -1,0 +1,694 @@
+<h1 id="paleocoran-data-base-description">Paleocoran Data Base Description</h1>
+<h2 id="general">General</h2>
+<p>This document contains information about all the Paleocoran-revelant tables in the Corpus Coranicum data base.</p>
+<hr />
+<h2 id="relevant-tables">Relevant Tables</h2>
+<p>In alphabetical order:</p>
+<ul>
+<li><a href="#aufbewahrungsorte">aufbewahrungsorte</a></li>
+<li><a href="#image_details">image_details</a></li>
+<li><a href="#lc_kkoran">lc_kkoran</a></li>
+<li><a href="#manuskript">manuskript</a></li>
+<li><a href="#manuskript_basic_readings_features">manuskript_basic_readings_features</a></li>
+<li><a href="#manuskript_mapping">manuskript_mapping</a></li>
+<li><a href="#manuskript_variant_reading_features">manuskript_variant_reading_features</a></li>
+<li><a href="#manuskriptseiten">manuskriptseiten</a></li>
+<li><a href="#manuskriptseiten_basic_readings_features">manuskriptseiten_basic_readings_features</a></li>
+<li><a href="#manuskriptseiten_bilder">manuskriptseiten_bilder</a></li>
+<li><a href="#manuskriptseiten_mapping">manuskriptseiten_mapping</a></li>
+<li><a href="#manuskriptseiten_variant_orthography">manuskriptseiten_variant_orthography</a></li>
+<li><a href="#manuskriptseiten_variant_orthography_features">manuskriptseiten_variant_orthography_features</a></li>
+<li><a href="#manuskriptseiten_variant_readings">manuskriptseiten_variant_readings</a></li>
+<li><a href="#manuskriptseiten_variant_readings_variants">manuskriptseiten_variant_readings_variants</a></li>
+<li><a href="#manuskriptseiten_variant_readings_variants_features">manuskriptseiten_variant_readings_variants_features</a></li>
+<li><a href="#manuskriptseiten_verse_separators">manuskriptseiten_verse_separators</a></li>
+<li><a href="#paleocoran_codex_classifications">paleocoran_codex_classifications</a></li>
+<li><a href="#paleocoran_codex_defects">paleocoran_codex_defects</a></li>
+<li><a href="#paleocoran_codex_illumination">paleocoran_codex_illumination</a></li>
+<li><a href="#paleocoran_codex_illumination_colors">paleocoran_codex_illumination_colors</a></li>
+<li><a href="#paleocoran_codex_illumination_decorative_repertoire">paleocoran_codex_illumination_decorative_repertoire</a></li>
+<li><a href="#paleocoran_codex_limit_lines">paleocoran_codex_limit_lines</a></li>
+<li><a href="#paleocoran_codex_page_design_formula_agreement_of_aya">paleocoran_codex_page_design_formula_agreement_of_aya</a></li>
+<li><a href="#paleocoran_codex_page_design_formula_chapter_designation">paleocoran_codex_page_design_formula_chapter_designation</a></li>
+<li><a href="#paleocoran_codex_page_design_formula_sequence_of_numbering">paleocoran_codex_page_design_formula_sequence_of_numbering</a></li>
+<li><a href="#paleocoran_codex_page_design_heading_type">paleocoran_codex_page_design_heading_type</a></li>
+<li><a href="#paleocoran_codex_page_design_justification">paleocoran_codex_page_design_justification</a></li>
+<li><a href="#paleocoran_codex_quire_composition">paleocoran_codex_quire_composition</a></li>
+<li><a href="#paleocoran_codex_quire_types">paleocoran_codex_quire_types</a></li>
+<li><a href="#paleocoran_codex_ruling_systems">paleocoran_codex_ruling_systems</a></li>
+<li><a href="#paleocoran_codex_skins">paleocoran_codex_skins</a></li>
+<li><a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a></li>
+<li><a href="#paleocoran_manuscript_codex_manuscripts">paleocoran_manuscript_codex_manuscripts</a></li>
+<li><a href="#paleocoran_manuscript_codex_mappings">paleocoran_manuscript_codex_mappings</a></li>
+</ul>
+<hr />
+<h2 id="aufbewahrungsorte">aufbewahrungsorte</h2>
+<h4 id="description">Description</h4>
+<p>Information about places and instutitions holding the manuscripts referenced (see also <a href="#manuskript">manuskript</a>)</p>
+<h4 id="model">Model</h4>
+<p><code>App\Manuskripte\Aufbewahrungsort</code></p>
+<h3 id="fields">Fields</h3>
+<ul>
+<li><code>id</code> - incremental ID</li>
+<li><code>ort</code> - name of the place (city)</li>
+<li><code>country_code</code> - country code of the given location</li>
+<li><code>name</code> - name of the holding institution</li>
+<li><code>beschreibung</code> - description of the holding institution</li>
+<li><code>link</code> - URL linking to the holding institution</li>
+<li><code>bild_link</code> - irrelevant for Paleocoran</li>
+<li><code>bild_link</code> - irrelevant for Paleocoran</li>
+<li><code>bild_orig</code> - irrelevant for Paleocoran</li>
+<li><code>bild_beschreibung</code> - irrelevant for Paleocoran</li>
+</ul>
+<hr />
+<h2 id="image_details">image_details</h2>
+<h4 id="description-1">Description</h4>
+<p>Annotations and snippets of images contained in <a href="#manuskriptseiten_bilder">manuskriptseiten_bilder</a></p>
+<h4 id="model-1">Model</h4>
+<p><code>App\ImageDetail</code></p>
+<h4 id="fields-1">Fields</h4>
+<ul>
+<li><code>id</code> - incremental ID</li>
+<li><code>created_at</code> - timestamp of creation</li>
+<li><code>updated_at</code> - timestamp of last update</li>
+<li><code>relation</code> - type of relation; currently the following values are allowed:
+<ul>
+<li><code>manuskriptseiten_variant_readings</code> - i.e. this record contains an image annotation for <a href="#manuskriptseiten_variant_readings">manuskriptseiten_variant_readings</a></li>
+<li><code>manuskriptseiten_variant_orthography</code> - i.e. this record contains an image annotation for <a href="#manuskriptseiten_variant_orthography">manuskriptseiten_variant_orthography</a></li>
+<li><code>manuskriptseiten_verse_separators</code> - i.e. this record contains an image annotation for <a href="#manuskriptseiten_verse_separators">manuskriptseiten_verse_separators</a></li>
+</ul></li>
+<li><code>relation_id</code> - ID of the given record, depending on the <code>relation</code> field</li>
+<li><code>image_relation</code> - within Paleocoran, the value has to be <code>manuskript</code></li>
+<li><code>image_id</code> - ID of the given given manuscript image, see <a href="#manuskriptseiten_bilder">manuskriptseiten_bilder</a></li>
+<li><code>title</code> - title of the given image annotation</li>
+<li><code>description</code> - description of the image annotation</li>
+<li><code>x</code> - relative horizontal offset of the original image in per cent (0..100)</li>
+<li><code>y</code> - relative vertical offset of the original image in per cent (0..100)</li>
+<li><code>width</code> - relative width of the selected sub-image in per cent (0..100)</li>
+<li><code>height</code> - relative height of the selected sub-image in per cent (0..100)</li>
+</ul>
+<hr />
+<h2 id="lc_kkoran">lc_kkoran</h2>
+<h4 id="description-2">Description</h4>
+<p>All words in the Kairo version of the Qu'ran, identified by sura, verse and word coordinate</p>
+<h4 id="model-2">Model</h4>
+<p><code>App\Modelsstelle</code></p>
+<h4 id="fields-2">Fields</h4>
+<ul>
+<li><code>index</code> - incremental ID</li>
+<li><code>sure</code> - number of the sura</li>
+<li><code>vers</code> - number of the verse in the given sura</li>
+<li><code>wort</code> - number of the word in the given verse (in the given sura)</li>
+<li><code>transkription</code> - latinized transcription of the given word</li>
+<li><code>wurzel</code> - irrelevant</li>
+<li><code>arab</code> - arabic representation of the given word</li>
+</ul>
+<hr />
+<h2 id="manuskript">manuskript</h2>
+<h4 id="description-3">Description</h4>
+<p>Manuscripts, manuscript fragments, codicological units. A container of metadata describing a phyiscally existing Qur'an manuscript. (This is not the reconstructed <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>!)</p>
+<h4 id="model-3">Model</h4>
+<p><code>App\Manuskripte\Manuskript</code></p>
+<h4 id="fields-3">Fields</h4>
+<ul>
+<li><code>ID</code> - incremental ID</li>
+<li><code>Kodextitel</code> - name of the given manuscript</li>
+<li><code>Format</code> - format information (width x height)</li>
+<li><code>Aufbewahrungsort</code> - name of the holding institution of the given manuscript</li>
+<li><code>AufbewahrungsortId</code> - foreign key to the holding institution (see <code>id</code> in <a href="#aufbewahrungsorte">aufbewahrungsorte</a>)</li>
+<li><code>Signatur</code> - call number of the given manuscript in the holding institution</li>
+<li><code>Herkunftsort</code> - place of origin</li>
+<li><code>Datierung</code> - estimation when the given manuscript has been created</li>
+<li><code>TextstelleKoran</code> - text ranges of the given in the Qur'an as a string. Computed from <a href="#manuskript_mapping">manuskript_mapping</a></li>
+<li><code>Materialart</code> - material of the given manuscript (e.g. parchment, paper etc.)</li>
+<li><code>Kodikologie</code> - free text comment about codicological information</li>
+<li><code>Schriftduktus</code> - free text comment about calligraphy information</li>
+<li><code>Palaographie</code> - free text comment about paleographical information</li>
+<li><code>Textgliederung</code> - free text comment about text separation</li>
+<li><code>Literatur</code> - references literature; bibliography</li>
+<li><code>Bearbeiter</code> - names of colleagues who have edited the information of the given manuscript</li>
+<li><code>Bild</code> - deprecated field</li>
+<li><code>Kommentar_inter</code> - internal commentary, not to be shown to the public</li>
+<li><code>Kommentar</code> - external commentary, to be shown to the public</li>
+<li><code>webtauglich</code> - publish online. Three values are allowed:
+<ul>
+<li><code>ja</code> - yes --&gt; publish online</li>
+<li><code>ohneBild</code> - without image --&gt; publish online but only show the metadata</li>
+<li><code>nein</code> - no --&gt; don't publish online</li>
+</ul></li>
+<li><code>remarks_additional_folio</code> - comment about additional folios (paleocoran)</li>
+<li><code>remarks_foliation</code> - comment about foliation (paleocoran)</li>
+<li><code>remarks_pagination</code> - comment about pagination (paleocoran)</li>
+</ul>
+<hr />
+<h2 id="manuskript_basic_readings_features">manuskript_basic_readings_features</h2>
+<h4 id="description-4">Description</h4>
+<p>Management of features that occur in variant readings in associated manuscript pages (see <a href="#manuskriptseiten_variant_readings">manuskriptseiten_variant_readings</a> and <a href="#manuskriptseiten">manuskriptseiten</a>)</p>
+<h4 id="model-4">Model</h4>
+<p><code>App\Paleocoran\Manuskripte\ManuskriptseitenBasicReadingFeature</code></p>
+<h4 id="fields-4">Fields</h4>
+<ul>
+<li><code>id</code> - incremental ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>manuskript_id</code> - ID of the referenced manuscript (<code>ID</code> in <a href="#manuskript">manuskript</a>)</li>
+<li><code>feature</code> - name of the feature</li>
+</ul>
+<hr />
+<h2 id="manuskript_mapping">manuskript_mapping</h2>
+<h4 id="description-5">Description</h4>
+<p>List of text ranges manuscripts range over, identified by starting and ending coordinate</p>
+<h4 id="model-5">Model</h4>
+<p><code>App\Manuskripte\ManuskriptMapping</code></p>
+<h4 id="fields-5">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>manuskript</code> - ID of the referenced manuscript (<code>ID</code> in <a href="#manuskript">manuskript</a>)</li>
+<li><code>sure_start</code> - number of the starting sura according to Kairo</li>
+<li><code>vers_start</code> - number of the starting verse in the given sura according to Kairo</li>
+<li><code>word_start</code> - number of the starting word in the given verse according to Kairo</li>
+<li><code>sure_ende</code> - number of the ending sura according to Kairo</li>
+<li><code>vers_ende</code> - number of the ending verse in the given sura according to Kairo</li>
+<li><code>wort_ende</code> - number of the ending word in the given verse according to Kairo</li>
+</ul>
+<hr />
+<h2 id="manuskript_variant_reading_features">manuskript_variant_reading_features</h2>
+<h4 id="description-6">Description</h4>
+<p>Aggregation of features that have been applied to <a href="#manuskriptseiten_variant_readings">manuskriptseiten_variant_readings</a> and contextualization of what these features mean in the given manuscript.</p>
+<h4 id="model-6">Model</h4>
+<p><code>App\Paleocoran\Manuskripte\ManuskriptVariantReadingFeature</code></p>
+<h4 id="fields-6">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>manuskript_id</code> - ID of the referenced manuscript (<code>ID</code> in <a href="#manuskript">manuskript</a>)</li>
+<li><code>feature</code> - name of the feature</li>
+<li><code>definition</code> - description of what the feature means in the given manuscript</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten">manuskriptseiten</h2>
+<h4 id="description-7">Description</h4>
+<p>Manuscript pages that are contained in a manuscript (<a href="#manuskript">manuskript</a>)</p>
+<h4 id="model-7">Model</h4>
+<p><code>App\Manuskripte\Manuskriptseiten</code></p>
+<h4 id="fields-7">Fields</h4>
+<ul>
+<li><code>SeitenID</code> - incremental ID</li>
+<li><code>ManuskriptID</code> - ID of the referenced manuscript (<code>ID</code> in <a href="#manuskript">manuskript</a>)</li>
+<li><code>Bearbeiter</code> - name of last editor</li>
+<li><code>Transkription</code> - deprecated field</li>
+<li><code>Folio</code> - folio number of the current page</li>
+<li><code>Seite</code> - page type (usually, <code>r</code> for <em>recto</em> or <code>v</code> for <em>verso</em>)</li>
+<li><code>FolioundSeite</code> - computed field, consisting of <code>Folio</code> + <code>Seite</code> (e.g. fol. 1, page r =&gt; 1r)</li>
+<li><code>Zeilenzahl</code> - Number of lines on the given page</li>
+<li><code>Kommentar</code> - commentary for this page</li>
+<li><code>Kommentar_intern</code> - commentary for the given page; don't show to the public</li>
+<li><code>Palaeographie</code> - information about paleography</li>
+<li><code>webtauglich</code> - publish online. Three values are allowed:
+<ul>
+<li><code>ja</code> - yes --&gt; publish online</li>
+<li><code>ohneBild</code> - without image --&gt; publish online but only show the metadata</li>
+<li><code>nein</code> - no --&gt; don't publish online</li>
+</ul></li>
+<li><code>Format</code> - format information (width x height)</li>
+<li><code>digilib</code> - deprecated</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_basic_readings_features">manuskriptseiten_basic_readings_features</h2>
+<h4 id="description-8">Description</h4>
+<p>Mapping of features for variant readings (see also <a href="#manuskriptseiten_variant_readings">manuskriptseiten_variant_readings</a>). A single variant reading can have multiple features</p>
+<h4 id="model-8">Model</h4>
+<p><code>App\Paleocoran\Manuskriptseiten\ManuskriptseitenBasicReadingFeature</code></p>
+<h4 id="fields-8">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>variant_reading_id</code> - reference to the variant reading (<code>id</code> in <a href="#manuskriptseiten_variant_readings">manuskriptseiten_variant_readings</a>)</li>
+<li><code>feature</code> - name of the feature assigned to the variant reading</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_bilder">manuskriptseiten_bilder</h2>
+<h4 id="description-9">Description</h4>
+<p>Images associated with manuscript pages (see also <a href="#manuskriptseiten">manuskriptseiten</a>)</p>
+<h4 id="model-9">Model</h4>
+<p><code>App\Manuskripte\ManuskriptseitenBild</code></p>
+<h4 id="fields-9">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>manuskriptseite</code> - reference to the manuscript page (<code>SeitenID</code> in Images associated with manuscript pages (see also <a href="#manuskriptseiten">manuskriptseiten</a>))</li>
+<li><code>Bildlink</code> - relative path to image on the image server</li>
+<li><code>Bildlink_extern</code> - original URL, if available</li>
+<li><code>Bildlinknachweis</code> - description of the image</li>
+<li><code>webtauglich</code> - publish online. Three values are allowed:
+<ul>
+<li><code>ja</code> - yes --&gt; publish online</li>
+<li><code>ohneBild</code> - without image --&gt; publish online but only show the metadata</li>
+<li><code>nein</code> - no --&gt; don't publish online</li>
+</ul></li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_mapping">manuskriptseiten_mapping</h2>
+<h4 id="description-10">Description</h4>
+<p>List of text ranges individual manuscript pages range over, identified by starting and ending coordinate</p>
+<h4 id="model-10">Model</h4>
+<p><code>App\Manuskripte\ManuskriptseitenMapping</code></p>
+<h4 id="fields-10">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>manuskriptseite</code> - reference to the manuscript page (<code>SeitenID</code> in <a href="#manuskriptseiten">manuskriptseiten</a>)</li>
+<li><code>sure_start</code> - number of the starting sura according to Kairo</li>
+<li><code>vers_start</code> - number of the starting verse in the given sura according to Kairo</li>
+<li><code>word_start</code> - number of the starting word in the given verse according to Kairo</li>
+<li><code>sure_ende</code> - number of the ending sura according to Kairo</li>
+<li><code>vers_ende</code> - number of the ending verse in the given sura according to Kairo</li>
+<li><code>wort_ende</code> - number of the ending word in the given verse according to Kairo</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_variant_orthography">manuskriptseiten_variant_orthography</h2>
+<h4 id="description-11">Description</h4>
+<p>Variants in orthography (arabic scripture) recorded on a manuscript page, identified by their word coordinate</p>
+<h4 id="model-11">Model</h4>
+<p><code>App\Paleocoran\Manuskriptseiten\ManuskriptseitenOrthographieVariante</code></p>
+<h4 id="fields-11">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>manuskriptseiten_id</code> - reference to the manuscript page (<code>SeitenID</code> in <a href="#manuskriptseiten">manuskriptseiten</a>)</li>
+<li><code>sure</code> - sura location in the text</li>
+<li><code>vers</code> - verse location in the given sura</li>
+<li><code>wort</code> - word location in the given verse</li>
+<li><code>variant</code> - arabic string of how the given word is written in the given manuscript</li>
+<li><code>comment</code> - free text comment about the given variant</li>
+<li><code>lastUser</code> - ID of last editor</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_variant_orthography_features">manuskriptseiten_variant_orthography_features</h2>
+<h4 id="description-12">Description</h4>
+<p>Associated features for the variants in orthography</p>
+<h4 id="model-12">Model</h4>
+<p><code>App\Paleocoran\Manuskriptseiten\ManuskriptseitenOrthographieVariantenFeature</code></p>
+<h4 id="fields-12">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>orthography_variant_id</code> - reference to the variant in orthography (<code>id</code> in <a href="#manuskriptseiten_variant_orthography">manuskriptseiten_variant_orthography</a>)</li>
+<li><code>feature</code> - associated features for the given variant in orthography</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_variant_readings">manuskriptseiten_variant_readings</h2>
+<h4 id="description-13">Description</h4>
+<p>Variant readings (how the text was read aloud) recorded on manuscript pages, identified by their word coordinate</p>
+<h4 id="model-13">Model</h4>
+<p><code>App\Paleocoran\Manuskriptseiten\ManuskriptseitenLesart</code></p>
+<h4 id="fields-13">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>manuskriptseite_id</code> - reference to the manuscript page (<code>SeitenID</code> in <a href="#manuskriptseiten">manuskriptseiten</a>)</li>
+<li><code>sure</code> - sura location in the text</li>
+<li><code>vers</code> - verse location in the given sura</li>
+<li><code>wort</code> - word location in the given verse</li>
+<li><code>feature</code> - identifying feature of the given variant readings (e.g. red-dots)</li>
+<li><code>comment</code> - free text comment about the given variant</li>
+<li><code>lastUser</code> - ID of last editor</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_variant_readings_variants">manuskriptseiten_variant_readings_variants</h2>
+<h4 id="description-14">Description</h4>
+<p>The actual variants of the variant readings, since there can be more than one way of reading a word aloud</p>
+<h4 id="model-14">Model</h4>
+<p><code>App\Paleocoran\Manuskriptseiten\ManuskriptseitenLesartVariante</code></p>
+<h4 id="fields-14">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>variant_reading_id</code> - reference to the parent variant reading (<code>id</code> in <a href="#manuskriptseiten_variant_readings">manuskriptseiten_variant_readings</a>)</li>
+<li><code>variant</code> - transliteration of how the given word was read aloud (latinized)</li>
+<li><code>normalized</code> - normalized version of the <code>variant</code> field, ASCII only</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_variant_readings_variants_features">manuskriptseiten_variant_readings_variants_features</h2>
+<h4 id="description-15">Description</h4>
+<p>Particularities of single variant readings variants</p>
+<h4 id="model-15">Model</h4>
+<p><code>App\Paleocoran\Manuskriptseiten\ManuskriptseitenVariantReadingVariantFeature</code></p>
+<h4 id="fields-15">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>variant_id</code> - reference to the parent variant reading variant (<code>id</code> in <a href="#manuskriptseiten_variant_readings_variants">manuskriptseiten_variant_readings_variants</a>)</li>
+<li><code>feature</code> - particularity for the referenced variant</li>
+</ul>
+<hr />
+<h2 id="manuskriptseiten_verse_separators">manuskriptseiten_verse_separators</h2>
+<h4 id="description-16">Description</h4>
+<p>Verse separators recorded on manuscript pages, especially when their location differ from Kairo. Identified by the word coordinate in the text</p>
+<h4 id="model-16">Model</h4>
+<p><code>App\Paleocoran\Manuskriptseiten\ManuskriptseitenVerseSeparator</code></p>
+<h4 id="fields-16">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>manuskriptseiten_id</code> - - reference to the manuscript page (<code>SeitenID</code> in <a href="#manuskriptseiten">manuskriptseiten</a>)</li>
+<li><code>sure</code> - sura location in the text</li>
+<li><code>vers</code> - verse location in the given sura</li>
+<li><code>wort</code> - word location in the given verse</li>
+<li><code>type</code> - category of the given verse separator</li>
+<li><code>sure</code> - sura location in the text, in case it differs from Kairo</li>
+<li><code>vers</code> - verse location in the given sura, in case it differs from Kairo</li>
+<li><code>wort</code> - word location in the given verse, in case it differs from Kairo</li>
+<li><code>comment</code> - free text comment about the given verse separator</li>
+<li><code>description</code> - visual description of the given verse separator</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_classifications">paleocoran_codex_classifications</h2>
+<h4 id="description-17">Description</h4>
+<p>Classification of the reconstructed codices</p>
+<h4 id="model-17">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexClassification</code></p>
+<h4 id="fields-17">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>supercategory</code> - first level classification type</li>
+<li><code>subcategory</code> - second level classification type</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_defects">paleocoran_codex_defects</h2>
+<h4 id="description-18">Description</h4>
+<p>Defects recorded in reconstructed codices</p>
+<h4 id="model-18">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexDefect</code></p>
+<h4 id="fields-18">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>defect</code> - defect in the given codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_illumination">paleocoran_codex_illumination</h2>
+<h4 id="description-19">Description</h4>
+<p>Illuminations recorded in a reconstructed codex</p>
+<h4 id="model-19">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexIllumination</code></p>
+<h4 id="fields-19">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>illumination_type</code> - type of illumination</li>
+<li><code>manuskriptseiten_id</code> - reference to the manuscript page (<code>SeitenID</code> in <a href="#manuskriptseiten">manuskriptseiten</a>)</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_illumination_colors">paleocoran_codex_illumination_colors</h2>
+<h4 id="description-20">Description</h4>
+<p>Colors used in the codex illuminations</p>
+<h4 id="model-20">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexIlluminationColor</code></p>
+<h4 id="fields-20">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>color</code> - color used in the given manuscript codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_illumination_decorative_repertoire">paleocoran_codex_illumination_decorative_repertoire</h2>
+<h4 id="description-21">Description</h4>
+<p>Decorations used in the reconstructed codices and their illuminations</p>
+<h4 id="model-21">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexIlluminationDecoration</code></p>
+<h4 id="fields-21">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>decoration</code> - decoration used in the given manuscript codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_limit_lines">paleocoran_codex_limit_lines</h2>
+<h4 id="description-22">Description</h4>
+<p>Limit lines used in the reconstructed codices</p>
+<h4 id="model-22">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexIlluminationDecoration</code></p>
+<h4 id="fields-22">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>limit_lines</code> - limiting lines used in the given manuscript codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_page_design_formula_agreement_of_aya">paleocoran_codex_page_design_formula_agreement_of_aya</h2>
+<h4 id="description-23">Description</h4>
+<p>Agreements of aya used in the page design in the reconstructed codices</p>
+<h4 id="model-23">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexAgreementOfAya</code></p>
+<h4 id="fields-23">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>agreement_of_aya</code> - agreement of aya used in the given reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_page_design_formula_chapter_designation">paleocoran_codex_page_design_formula_chapter_designation</h2>
+<h4 id="description-24">Description</h4>
+<p>Chapter designations used in the page design in the reconstructed codices</p>
+<h4 id="model-24">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexChapterDesignation</code></p>
+<h4 id="fields-24">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>designation</code> - designations used in the reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_page_design_formula_sequence_of_numbering">paleocoran_codex_page_design_formula_sequence_of_numbering</h2>
+<h4 id="description-25">Description</h4>
+<p>Sequence of numbering used in reconstructed codices</p>
+<h4 id="model-25">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexSequenceOfNumbering</code></p>
+<h4 id="fields-25">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>sequence</code> - type of sequence</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_page_design_heading_type">paleocoran_codex_page_design_heading_type</h2>
+<h4 id="description-26">Description</h4>
+<p>Heading types used in reconstructed codices</p>
+<h4 id="model-26">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexPageDesignHeadingType</code></p>
+<h4 id="fields-26">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>heading_type</code> - type of heading used in the given reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_page_design_justification">paleocoran_codex_page_design_justification</h2>
+<h4 id="description-27">Description</h4>
+<p>Types of justifications used in the reconstructed codices</p>
+<h4 id="model-27">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexPageDesignJustifcation</code></p>
+<h4 id="fields-27">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>justification</code> - type of justification used in the given reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_quire_composition">paleocoran_codex_quire_composition</h2>
+<h4 id="description-28">Description</h4>
+<p>Information about the quire composition in the reconstructed codices</p>
+<h4 id="model-28">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexQuireComposition</code></p>
+<h4 id="fields-28">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>composition</code> - type of composition used in the given reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_quire_types">paleocoran_codex_quire_types</h2>
+<h4 id="description-29">Description</h4>
+<p>Quire types used in the reconstructed codices</p>
+<h4 id="model-29">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexQuireType</code></p>
+<h4 id="fields-29">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>quire_type</code> - type of quire used in the given reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_ruling_systems">paleocoran_codex_ruling_systems</h2>
+<h4 id="description-30">Description</h4>
+<p>Ruling systems used in the reconstructed codices</p>
+<h4 id="model-30">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexRulingSystem</code></p>
+<h4 id="fields-30">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>ruling_system</code> - type of ruling system used in the given reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_codex_skins">paleocoran_codex_skins</h2>
+<h4 id="description-31">Description</h4>
+<p>Skins used in the reconstructed codices</p>
+<h4 id="model-31">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexSkin</code></p>
+<h4 id="fields-31">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - reference to the parent reconstructed manuscript codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>skin</code> - type of skin used in the given reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_manuscript_codex">paleocoran_manuscript_codex</h2>
+<h4 id="description-32">Description</h4>
+<p>Metadata container for the reconstructed codices. Represents the virtually reconstructed codex (not to be confused with the actual manuscripts!)</p>
+<h4 id="model-32">Model</h4>
+<p><code>App\Paleocoran\Codex\Codex</code></p>
+<h4 id="fields-32">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>name</code> - name of the reconstructed codex</li>
+<li><code>storage</code> - comment about how the reconstructed codex is/has been stored</li>
+<li><code>origin</code> - comment about the origin of the reconstructed codex</li>
+<li><code>dimensions_outer_max_width</code> - width of the material</li>
+<li><code>dimensions_outer_max_height</code> - height of the material</li>
+<li><code>dimensions_inner_max_width</code> - width of the text on the material</li>
+<li><code>dimensions_inner_max_height</code> - height of the text on the material</li>
+<li><code>orientation</code> - orientation of the material (horizontal/vertical)</li>
+<li><code>lines_per_page</code> - number of lines per page</li>
+<li><code>notes</code> - general comment</li>
+<li><code>colophon_scribe</code> - information about the scribe according to the colophon</li>
+<li><code>colophon_patron</code> - information about the patron according to the colophon</li>
+<li><code>colophon_date</code> - information about the date of publishing/writing according to the colophon</li>
+<li><code>colophon_place</code> - geospatial information according to the colophon</li>
+<li><code>waqf_donor</code> - information about associated donating institutions</li>
+<li><code>waqf_beneficiary_institution</code> - information about associated institutions benefiting from the donations</li>
+<li><code>waqf_date</code> - temporal information about the waqf</li>
+<li><code>waqf_citation</code> - citation for the waqf</li>
+<li><code>classification_notes</code> - general comment about the classification</li>
+<li><code>paleographic_description</code> - general description about paleography</li>
+<li><code>corrections</code> - general comment about corrections in the reconstructed codex</li>
+<li><code>material</code> - general comment about the materials used in the reconstructed codex</li>
+<li><code>grain</code> - information about the grain of the material of the reconstructed codex</li>
+<li><code>thickness</code> - information about the thickness of the material of the reconstructed codex</li>
+<li><code>pigmentation</code> - information about the pigmenation of the material of the reconstructed codex</li>
+<li><code>hair_follicles</code> - information about hair follicles in the material of the reconstructed codex</li>
+<li><code>animal_species</code> - information about the animal species used to create the material of the reconstructed codex</li>
+<li><code>skin_treatment</code> - information about how the skin used to create the material of the reconstructed codex was treated</li>
+<li><code>quires_preserved</code> - information about how many quires have been preserved over time</li>
+<li><code>quires_estimated</code> - information about how many quires there might have been originally</li>
+<li><code>quire_correspondant_folding</code> - information about how the quires were folded to form the codex</li>
+<li><code>membrane_disposition_gregory</code> - information about the membrane of the material according to Gregory</li>
+<li><code>membrane_disposition_outer_side</code> - information about the outser side of the membrane</li>
+<li><code>membrane_disposition_central_bifolium</code> - information about the central bifolium of the membrane</li>
+<li><code>ruling_means_of_ruling</code> - information about how the ruling was a applied</li>
+<li><code>ruling_pricking</code> - information about how the ruling was pricked</li>
+<li><code>ruling_line_ruling_type</code> - information about the type of ruling</li>
+<li><code>ink_category</code> - categorization of the ink used in the reconstructed codex</li>
+<li><code>ink_corrections_and_additions</code> - information about ink that has been corrected or added later</li>
+<li><code>ink_pingments_text</code> - information about ink pigments occurring in the text</li>
+<li><code>ink_pigments_vowels</code> - information about ink pigments that indicate some form of vocalization in the written text</li>
+<li><code>ink_pigments_ornaments</code> - information about the ornamental use of ink in the reconstructed codex</li>
+<li><code>ink_other_components</code> - information about other components where ink has been used</li>
+<li><code>ink_analysis</code> - information about the scientific analysis of the ink</li>
+<li><code>page_design_margin</code> - information about the margin in the page design</li>
+<li><code>page_design_writing_lines</code> - information about the lines that were used to create a sense of alignment in the text</li>
+<li><code>page_design_interlinear_space</code> - information about the space left between the lines written</li>
+<li><code>page_design_other_remarks</code> - other remarks regarding the page design</li>
+<li><code>page_design_heading_title_type_of_script</code> - information about the script used in headings</li>
+<li><code>page_design_heading_title_color</code> - information about the color used in headings</li>
+<li><code>page_design_heading_title_formula_title_relation</code> - information about the formulas and patterns used in the headings</li>
+<li><code>page_design_heading_title_formula_additional_information</code> - additional information about headings occurring in the reconstructed codex</li>
+<li><code>illumination_quality_of_execution_rating</code> - rating on how well the illuminations in the given reconstructed codex have been applied</li>
+<li><code>illumination_quality_of_execution_comment</code> - justification why the rating in <code>illumination_quality_of_execution_rating</code> was selected</li>
+<li><code>comment_Variant_readings</code> - general comment about all variant readings in the given reconstructed codex</li>
+<li><code>comment_variants_in_orthography</code> - general comment about all variants in orthography in the given reconstructed codex</li>
+<li><code>comment_verse_separators</code> - general comment about all verse separators in the given reconstructed codex</li>
+<li><code>bibliography</code> - aggregation of all literature used to describe the given reconstructed codex</li>
+</ul>
+<hr />
+<h2 id="paleocoran_manuscript_codex_manuscripts">paleocoran_manuscript_codex_manuscripts</h2>
+<h4 id="description-33">Description</h4>
+<p>Mappings of which (parts of) manuscripts (i.e. <a href="#manuskript">manuskript</a>) have been assigned to be a part of a reconstructed codex (<a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</p>
+<h4 id="model-33">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexManuscriptPivot</code></p>
+<h4 id="fields-33">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - ID of the referenced reconstructed codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>manuskript_id</code> - ID of the referenced manuscript (<code>ID</code> in <a href="#manuskript">manuskript</a>)</li>
+<li><code>manuskript_folio_start</code> - <em>(optional)</em> - starting folio where the assignment starts (if only a part of the given manuscript should be assigned to a codex); concurs with <code>Folio</code> in <a href="#manuskriptseiten">manuskriptseiten</a><br />
+</li>
+<li><code>manuskript_seite_start</code> - <em>(optional)</em> - starting page where the assignment starts (if only a part of the given manuscript should be assigned to a codex); concurs with <code>Seite</code> in <a href="#manuskriptseiten">manuskriptseiten</a><br />
+</li>
+<li><code>manuskript_folio_end</code> - <em>(optional)</em> - ending folio where the assignment starts (if only a part of the given manuscript should be assigned to a codex); concurs with <code>Folio</code> in <a href="#manuskriptseiten">manuskriptseiten</a></li>
+<li><code>manuskript_seite_end</code> - <em>(optional)</em> - ending page where the assignment starts (if only a part of the given manuscript should be assigned to a codex); concurs with <code>Seite</code> in <a href="#manuskriptseiten">manuskriptseiten</a></li>
+</ul>
+<hr />
+<h2 id="paleocoran_manuscript_codex_mappings">paleocoran_manuscript_codex_mappings</h2>
+<h4 id="description-34">Description</h4>
+<p>List of text ranges the reconstructed codices range over, identified by starting and ending coordinate</p>
+<h4 id="model-34">Model</h4>
+<p><code>App\Paleocoran\Codex\CodexMapping</code></p>
+<h4 id="fields-34">Fields</h4>
+<ul>
+<li><code>id</code> - incrementing ID</li>
+<li><code>created_at</code> - creation timestamp</li>
+<li><code>updated_at</code> - update timestamp</li>
+<li><code>paleocoran_manuscript_codex_id</code> - ID of the referenced reconstructed codex (<code>id</code> in <a href="#paleocoran_manuscript_codex">paleocoran_manuscript_codex</a>)</li>
+<li><code>codex_manuscript_mapping_id</code> - reference to the codex-manuscript-mapping the current text range list belongs to (<code>id</code> in <a href="#paleocoran_manuscript_codex_manuscripts">paleocoran_manuscript_codex_manuscripts</a>)</li>
+<li><code>sure_start</code> - number of the starting sura according to Kairo</li>
+<li><code>vers_start</code> - number of the starting verse in the given sura according to Kairo</li>
+<li><code>word_start</code> - number of the starting word in the given verse according to Kairo</li>
+<li><code>sure_ende</code> - number of the ending sura according to Kairo</li>
+<li><code>vers_ende</code> - number of the ending verse in the given sura according to Kairo</li>
+<li><code>wort_ende</code> - number of the ending word in the given verse according to Kairo</li>
+</ul>
